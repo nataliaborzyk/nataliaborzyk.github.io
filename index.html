@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Natalia Borzyk — Graphic Designer & Surface Pattern Artist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --coral:      #E07A5F;
+  --coral-soft: #F2B5A0;
+  --coral-pale: #FDF5F2;
+  --dark:       #1C1917;
+  --mid:        #78716C;
+  --light:      #F7F4F2;
+  --white:      #FFFFFF;
+  --border:     #E8E2DE;
+  --nav-h:      58px;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Jost',sans-serif; font-weight:300; color:var(--dark); background:var(--white); overflow-x:hidden; }
+img  { display:block; max-width:100%; }
+a    { color:inherit; text-decoration:none; }
+
+/* ── HEADER ── */
+header {
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:300;
+  height:var(--nav-h);
+  background:rgba(255,255,255,0.97);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 48px;
+}
+.nav-logo {
+  font-family:'Cormorant Garamond',serif;
+  font-size:19px;
+  font-weight:400;
+  letter-spacing:.04em;
+  color:var(--dark);
+  flex-shrink:0;
+  white-space:nowrap;
+}
+.nav-list {
+  display:flex;
+  align-items:center;
+  gap:22px;
+  list-style:none;
+}
+.nav-list a {
+  font-size:10.5px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-weight:400;
+  color:var(--mid);
+  transition:color .2s;
+  white-space:nowrap;
+}
+.nav-list a:hover, .nav-list a.active { color:var(--coral); }
+.lang-toggle {
+  display:flex;
+  gap:2px;
+  background:var(--light);
+  border-radius:20px;
+  padding:3px;
+  margin-left:16px;
+  flex-shrink:0;
+}
+.lang-btn {
+  font-size:10px;
+  letter-spacing:.1em;
+  font-family:'Jost',sans-serif;
+  font-weight:400;
+  background:none;
+  border:none;
+  cursor:pointer;
+  padding:4px 11px;
+  border-radius:16px;
+  color:var(--mid);
+  transition:all .2s;
+}
+.lang-btn.active { background:var(--coral); color:var(--white); }
+
+/* ── LANG ── */
+[data-lang="en"]             { display:none; }
+body.en [data-lang="pl"]     { display:none; }
+body.en [data-lang="en"]     { display:block; }
+body.en span[data-lang="en"] { display:inline; }
+body.en span[data-lang="pl"] { display:none; }
+
+/* ── MAIN ── */
+main { margin-top:var(--nav-h); }
+
+/* ── HERO ── */
+.hero {
+  min-height:calc(100vh - var(--nav-h));
+  display:grid;
+  grid-template-columns:1fr 1fr;
+}
+.hero-left {
+  padding:72px 56px 72px 80px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  position:relative;
+}
+.hero-left::after {
+  content:'';
+  position:absolute;
+  right:0; top:48px; bottom:48px;
+  width:1px;
+  background:var(--border);
+}
+.hero-tag {
+  font-size:10px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--coral);
+  font-weight:400;
+  margin-bottom:18px;
+  opacity:0;
+  animation:fadeUp .8s ease forwards .1s;
+}
+.hero-headline {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(40px,5.5vw,68px);
+  font-weight:300;
+  line-height:1.1;
+  color:var(--dark);
+  margin-bottom:24px;
+  opacity:0;
+  animation:fadeUp .8s ease forwards .3s;
+}
+.hero-headline em { font-style:italic; color:var(--coral); }
+.hero-body {
+  font-size:15px;
+  line-height:1.8;
+  color:var(--mid);
+  max-width:400px;
+  margin-bottom:44px;
+  font-weight:300;
+  opacity:0;
+  animation:fadeUp .8s ease forwards .5s;
+}
+.hero-btns {
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  opacity:0;
+  animation:fadeUp .8s ease forwards .7s;
+}
+.hero-right {
+  background:var(--coral-pale);
+  overflow:hidden;
+  opacity:0;
+  animation:fadeIn 1.2s ease forwards .2s;
+}
+.hero-right img { width:100%; height:100%; object-fit:cover; }
+.hero-ph {
+  width:100%; height:100%;
+  min-height:480px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:8px;
+}
+.hero-ph span { font-size:12px; letter-spacing:.1em; color:var(--coral-soft); font-weight:300; }
+
+/* ── BUTTONS ── */
+.btn {
+  font-family:'Jost',sans-serif;
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:400;
+  padding:13px 34px;
+  border:none;
+  cursor:pointer;
+  display:inline-block;
+  transition:all .2s;
+}
+.btn-coral  { background:var(--coral); color:var(--white); }
+.btn-coral:hover  { background:var(--dark); }
+.btn-outline { background:none; color:var(--dark); border:1px solid var(--border); }
+.btn-outline:hover { border-color:var(--coral); color:var(--coral); }
+
+/* ── SECTIONS ── */
+.section { padding:88px 80px; }
+.section-label { font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--coral); font-weight:400; display:block; margin-bottom:12px; }
+.section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(30px,4vw,48px); font-weight:300; line-height:1.15; color:var(--dark); margin-bottom:14px; }
+.section-title em { font-style:italic; color:var(--coral); }
+.section-desc { font-size:15px; line-height:1.8; color:var(--mid); font-weight:300; }
+
+/* ── TILES ── */
+#tiles { background:var(--light); }
+.tiles-intro { display:grid; grid-template-columns:1fr 1fr; gap:64px; margin-bottom:56px; align-items:end; }
+.tiles-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--border); }
+.tile {
+  background:var(--white);
+  padding:40px 36px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  transition:background .2s, transform .2s;
+  cursor:pointer;
+  text-decoration:none;
+  color:inherit;
+}
+.tile:hover { background:var(--coral-pale); transform:translateY(-3px); }
+.tile-icon { width:40px; height:40px; flex-shrink:0; }
+.tile-name { font-size:12px; letter-spacing:.12em; text-transform:uppercase; font-weight:400; color:var(--dark); }
+.tile-desc { font-size:13px; line-height:1.7; color:var(--mid); font-weight:300; flex:1; }
+.tile-arrow { font-size:18px; color:var(--coral-soft); align-self:flex-end; transition:transform .2s; }
+.tile:hover .tile-arrow { transform:translateX(4px); }
+
+/* ── ABOUT ── */
+#omnie { background:var(--coral-pale); }
+.about-grid { display:grid; grid-template-columns:360px 1fr; gap:72px; align-items:center; max-width:1100px; margin:0 auto; }
+.about-photo-wrap { position:relative; }
+.about-photo-box { width:100%; padding-bottom:100%; background:var(--light); position:relative; overflow:hidden; }
+.about-photo-box img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.about-ph { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:12px; letter-spacing:.1em; color:var(--coral-soft); font-weight:300; text-align:center; padding:20px; }
+.about-tag { position:absolute; bottom:-16px; right:-16px; background:var(--coral); color:var(--white); padding:16px 20px; font-family:'Cormorant Garamond',serif; font-size:13px; font-style:italic; font-weight:300; line-height:1.5; }
+.about-content h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(26px,3vw,38px); font-weight:300; line-height:1.2; color:var(--dark); margin-bottom:22px; }
+.about-content h2 em { font-style:italic; color:var(--coral); }
+.about-content p { font-size:15px; line-height:1.85; color:var(--mid); font-weight:300; margin-bottom:16px; }
+.about-details { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:32px; padding-top:32px; border-top:1px solid rgba(224,122,95,.3); }
+.detail-label { font-size:10px; letter-spacing:.15em; text-transform:uppercase; color:var(--coral); font-weight:400; display:block; margin-bottom:4px; }
+.detail-value { font-size:14px; color:var(--dark); font-weight:300; }
+
+/* ── SOCIALS ── */
+#socials { background:var(--white); padding:72px 80px; text-align:center; border-top:1px solid var(--border); }
+.social-headline { font-family:'Cormorant Garamond',serif; font-size:clamp(24px,3vw,36px); font-weight:300; color:var(--dark); margin-bottom:36px; }
+.social-headline em { font-style:italic; color:var(--coral); }
+.social-links { display:flex; justify-content:center; gap:0; flex-wrap:wrap; max-width:600px; margin:0 auto; background:var(--border); }
+.social-link { flex:1; min-width:160px; background:var(--white); padding:32px 24px; display:flex; flex-direction:column; align-items:center; gap:12px; text-decoration:none; color:inherit; transition:background .2s, transform .2s; }
+.social-link:hover { background:var(--coral-pale); transform:translateY(-3px); }
+.social-link svg { width:28px; height:28px; }
+.social-link-name { font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:400; color:var(--dark); }
+.social-link-handle { font-size:12px; color:var(--mid); font-weight:300; }
+
+/* ── FOOTER ── */
+footer { background:var(--dark); padding:32px 80px; display:flex; justify-content:space-between; align-items:center; }
+.footer-logo { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:400; color:rgba(255,255,255,.45); letter-spacing:.04em; }
+.footer-copy { font-size:11px; color:rgba(255,255,255,.22); letter-spacing:.06em; }
+.footer-links { display:flex; gap:20px; }
+.footer-links a { font-size:10px; letter-spacing:.12em; text-transform:uppercase; font-weight:400; color:rgba(255,255,255,.28); transition:color .2s; }
+.footer-links a:hover { color:var(--coral-soft); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px) { header { padding:0 28px; } .nav-list { gap:16px; } .nav-list a { font-size:10px; } .hero-left { padding:60px 40px 60px 48px; } }
+@media(max-width:900px) {
+  .nav-list { display:none; }
+  header { padding:0 24px; }
+  .hero { grid-template-columns:1fr; }
+  .hero-right { display:none; }
+  .hero-left { padding:56px 28px; }
+  .section { padding:60px 28px; }
+  .tiles-intro { grid-template-columns:1fr; gap:20px; }
+  .tiles-grid { grid-template-columns:1fr 1fr; }
+  .about-grid { grid-template-columns:1fr; gap:48px; }
+  .about-details { grid-template-columns:1fr; }
+  #socials { padding:56px 28px; }
+  footer { flex-direction:column; gap:16px; text-align:center; padding:28px 24px; }
+  .footer-links { justify-content:center; }
+}
+@media(max-width:560px) { .tiles-grid { grid-template-columns:1fr; } .social-links { flex-direction:column; } }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.svg" alt="Natalia Borzyk" style="height:38px;width:auto;display:block;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span style="display:none;font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;letter-spacing:.04em;color:var(--dark);">Natalia Borzyk</span>
+  </a>
+  <nav>
+    <ul class="nav-list">
+      <li><a href="index.html" class="active"><span data-lang="pl">Strona główna</span><span data-lang="en">Home</span></a></li>
+      <li><a href="wzory.html"><span data-lang="pl">Wzory &amp; ilustracje</span><span data-lang="en">Patterns &amp; illustration</span></a></li>
+      <li><a href="digital.html">Digital</a></li>
+      <li><a href="print.html">Print</a></li>
+      <li><a href="etykiety.html"><span data-lang="pl">Etykiety &amp; opakowania</span><span data-lang="en">Labels &amp; packaging</span></a></li>
+      <li><a href="branding.html">Logo &amp; Branding</a></li>
+      <li><a href="kontakt.html"><span data-lang="pl">Kontakt</span><span data-lang="en">Contact</span></a></li>
+    </ul>
+  </nav>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('pl')">PL</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="hero-left">
+    <span class="hero-tag">Graphic Designer · Surface Pattern Artist · Milano</span>
+    <h1 class="hero-headline">
+      <span data-lang="pl">Design z duszą.<br><em>Wzory z charakterem.</em></span>
+      <span data-lang="en">Design with soul.<br><em>Patterns with character.</em></span>
+    </h1>
+    <p class="hero-body" data-lang="pl">Kocham to, co robię — i widać to we współpracy ze mną. Ponad 9 lat doświadczenia w różnorodnych projektach.</p>
+    <p class="hero-body" data-lang="en">I love what I do — and you can feel it when we work together. Over 9 years of experience across diverse projects.</p>
+    <div class="hero-btns">
+      <a href="#tiles" class="btn btn-coral"><span data-lang="pl">Zobacz portfolio</span><span data-lang="en">View portfolio</span></a>
+      <a href="kontakt.html" class="btn btn-outline"><span data-lang="pl">Napisz do mnie</span><span data-lang="en">Get in touch</span></a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <!-- Podmień na: <img src="photo.jpg" alt="Natalia Borzyk"> -->
+    <div class="hero-ph">
+      <span data-lang="pl">Twoje zdjęcie tutaj</span>
+      <span data-lang="en">Your photo here</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="tiles">
+  <div class="tiles-intro">
+    <div>
+      <span class="section-label"><span data-lang="pl">co oferuję</span><span data-lang="en">services</span></span>
+      <h2 class="section-title">
+        <span data-lang="pl">Tworzę design,<br>który <em>zostaje w pamięci</em></span>
+        <span data-lang="en">Design that<br><em>stays with you</em></span>
+      </h2>
+    </div>
+    <p class="section-desc" data-lang="pl">Łączę estetykę z komercyjnym myśleniem. Każdy projekt ma swój cel, swój rynek i swoją historię. Rozumiem pełen łańcuch produkcji — od konceptu po zatwierdzony plik.</p>
+    <p class="section-desc" data-lang="en">I combine aesthetics with commercial thinking. Every project has its purpose, its market and its story. I understand the full production chain — from concept to approved file.</p>
+  </div>
+  <div class="tiles-grid">
+
+    <a href="wzory.html" class="tile">
+      <svg class="tile-icon" viewBox="0 0 40 40" fill="none">
+        <circle cx="10" cy="10" r="5" fill="#E07A5F" opacity=".3"/><circle cx="30" cy="10" r="5" fill="#E07A5F" opacity=".3"/>
+        <circle cx="10" cy="30" r="5" fill="#E07A5F" opacity=".3"/><circle cx="30" cy="30" r="5" fill="#E07A5F" opacity=".3"/>
+        <circle cx="20" cy="20" r="6" fill="#E07A5F" opacity=".6"/>
+        <circle cx="20" cy="10" r="3" fill="#F2B5A0" opacity=".5"/><circle cx="20" cy="30" r="3" fill="#F2B5A0" opacity=".5"/>
+        <circle cx="10" cy="20" r="3" fill="#F2B5A0" opacity=".5"/><circle cx="30" cy="20" r="3" fill="#F2B5A0" opacity=".5"/>
+      </svg>
+      <span class="tile-name" data-lang="pl">Wzory &amp; ilustracje</span>
+      <span class="tile-name" data-lang="en">Patterns &amp; illustration</span>
+      <p class="tile-desc" data-lang="pl">Licencjonowalne wzory i oryginalne ilustracje na różne powierzchnie, m.in. tapety, tkaniny i print-on-demand.</p>
+      <p class="tile-desc" data-lang="en">Licensable surface patterns and original illustrations for wallpaper, textiles and print-on-demand.</p>
+      <span class="tile-arrow">&#8594;</span>
+    </a>
+
+    <a href="digital.html" class="tile">
+      <svg class="tile-icon" viewBox="0 0 40 40" fill="none">
+        <rect x="4" y="8" width="32" height="20" rx="2" stroke="#E07A5F" stroke-width="1.5" fill="none" opacity=".5"/>
+        <path d="M14 28 L12 34 M26 28 L28 34" stroke="#E07A5F" stroke-width="1.5" stroke-linecap="round" opacity=".4"/>
+        <line x1="10" y1="34" x2="30" y2="34" stroke="#E07A5F" stroke-width="1.5" stroke-linecap="round" opacity=".4"/>
+        <rect x="10" y="13" width="20" height="10" rx="1" fill="#E07A5F" opacity=".12"/>
+        <line x1="14" y1="16" x2="26" y2="16" stroke="#E07A5F" stroke-width="1" opacity=".4"/>
+        <line x1="14" y1="19" x2="22" y2="19" stroke="#E07A5F" stroke-width="1" opacity=".4"/>
+      </svg>
+      <span class="tile-name">Digital</span>
+      <p class="tile-desc" data-lang="pl">Banery, grafiki e-commerce i content do sklepów internetowych oraz kampanii online.</p>
+      <p class="tile-desc" data-lang="en">Banners, e-commerce graphics and content for online shops and digital campaigns.</p>
+      <span class="tile-arrow">&#8594;</span>
+    </a>
+
+    <a href="print.html" class="tile">
+      <svg class="tile-icon" viewBox="0 0 40 40" fill="none">
+        <rect x="8" y="4" width="18" height="24" rx="1" fill="none" stroke="#E07A5F" stroke-width="1.5" opacity=".4"/>
+        <rect x="14" y="12" width="18" height="24" rx="1" fill="none" stroke="#E07A5F" stroke-width="1.5" opacity=".65"/>
+        <line x1="18" y1="18" x2="28" y2="18" stroke="#E07A5F" stroke-width="1" opacity=".5"/>
+        <line x1="18" y1="22" x2="28" y2="22" stroke="#E07A5F" stroke-width="1" opacity=".5"/>
+        <line x1="18" y1="26" x2="24" y2="26" stroke="#E07A5F" stroke-width="1" opacity=".5"/>
+      </svg>
+      <span class="tile-name">Print</span>
+      <p class="tile-desc" data-lang="pl">Katalogi, kalendarze, artykuły papiernicze i materiały reklamowe — DTP i przygotowanie plików.</p>
+      <p class="tile-desc" data-lang="en">Catalogues, calendars, stationery and marketing materials — DTP and print file preparation.</p>
+      <span class="tile-arrow">&#8594;</span>
+    </a>
+
+    <a href="etykiety.html" class="tile">
+      <svg class="tile-icon" viewBox="0 0 40 40" fill="none">
+        <rect x="8" y="10" width="24" height="20" rx="2" fill="none" stroke="#E07A5F" stroke-width="1.5" opacity=".5"/>
+        <line x1="12" y1="17" x2="28" y2="17" stroke="#E07A5F" stroke-width="1" opacity=".4"/>
+        <ellipse cx="20" cy="25" rx="5" ry="3" fill="none" stroke="#E07A5F" stroke-width="1" opacity=".4"/>
+        <circle cx="32" cy="10" r="4" fill="none" stroke="#E07A5F" stroke-width="1.5" opacity=".4"/>
+      </svg>
+      <span class="tile-name" data-lang="pl">Etykiety &amp; opakowania</span>
+      <span class="tile-name" data-lang="en">Labels &amp; packaging</span>
+      <p class="tile-desc" data-lang="pl">Etykiety dla różnych produktów z pełnym przygotowaniem do druku.</p>
+      <p class="tile-desc" data-lang="en">Label design for food, cosmetic and alcohol products with full print preparation.</p>
+      <span class="tile-arrow">&#8594;</span>
+    </a>
+
+    <a href="branding.html" class="tile">
+      <svg class="tile-icon" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="16" r="9" fill="none" stroke="#E07A5F" stroke-width="1.5" opacity=".5"/>
+        <path d="M16 16 L19 19 L25 13" stroke="#E07A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>
+        <line x1="8" y1="29" x2="32" y2="29" stroke="#E07A5F" stroke-width="1" opacity=".3"/>
+        <line x1="13" y1="33" x2="27" y2="33" stroke="#E07A5F" stroke-width="1" opacity=".2"/>
+      </svg>
+      <span class="tile-name">Logo &amp; Branding</span>
+      <p class="tile-desc" data-lang="pl">Identyfikacja wizualna, systemy brandingowe i logo budujące rozpoznawalną markę.</p>
+      <p class="tile-desc" data-lang="en">Brand identity, brand systems and logos that build a recognisable brand.</p>
+      <span class="tile-arrow">&#8594;</span>
+    </a>
+
+    <a href="kontakt.html" class="tile">
+      <svg class="tile-icon" viewBox="0 0 40 40" fill="none">
+        <rect x="6" y="10" width="28" height="20" rx="2" fill="none" stroke="#E07A5F" stroke-width="1.5" opacity=".5"/>
+        <path d="M6 14 L20 23 L34 14" stroke="#E07A5F" stroke-width="1.5" stroke-linecap="round" opacity=".6"/>
+      </svg>
+      <span class="tile-name" data-lang="pl">Projekty indywidualne</span>
+      <span class="tile-name" data-lang="en">Custom projects</span>
+      <p class="tile-desc" data-lang="pl">Masz niestandardowy projekt? Chętnie porozmawiam o współpracy i wycenie.</p>
+      <p class="tile-desc" data-lang="en">Have an unusual project? I'd love to discuss collaboration and pricing.</p>
+      <span class="tile-arrow">&#8594;</span>
+    </a>
+
+  </div>
+</section>
+
+<section class="section" id="omnie" style="background:var(--coral-pale);">
+  <div class="about-grid">
+    <div class="about-photo-wrap">
+      <div class="about-photo-box">
+        <!-- Podmień na: <img src="photo.jpg" alt="Natalia Borzyk"> -->
+        <div class="about-ph" data-lang="pl">Twoje zdjęcie tutaj</div>
+        <div class="about-ph" data-lang="en">Your photo here</div>
+      </div>
+    </div>
+    <div class="about-content">
+      <span class="section-label"><span data-lang="pl">o mnie</span><span data-lang="en">about me</span></span>
+      <h2>
+        <span data-lang="pl">Za każdym projektem<br><em>stoi historia.</em></span>
+        <span data-lang="en">Behind every project<br><em>there's a story.</em></span>
+      </h2>
+      <p data-lang="pl">Jestem projektantką graficzną z ponad 9-letnim doświadczeniem — pracowałam w drukarniach, firmach tekstylnych i przy projektach e-commerce, realizując zamówienia dla klientów z Ameryki Północnej, Australii, Emiratów i Europy. Wiem, co znaczy przeprowadzić projekt od pierwszego szkicu aż po gotowy plik produkcyjny.</p>
+      <p data-lang="en">I'm a graphic designer with 9+ years of experience — I've worked in printing houses, textile companies and e-commerce projects, delivering work for clients across North America, Australia, the UAE and Europe. I know what it takes to carry a project from the first sketch to a production-ready file.</p>
+      <p data-lang="pl">Kocham tworzyć — rysować wzory, budować identyfikacje wizualne, projektować materiały, które naprawdę coś mówią. Design to dla mnie nie tylko praca, to sposób myślenia o świecie.</p>
+      <p data-lang="en">I love to create — drawing patterns, building brand identities, designing materials that actually say something. Design is not just my work, it's the way I think about the world.</p>
+      <p data-lang="pl">Mieszkam w Mediolanie i działam na własnej działalności gospodarczej.</p>
+      <p data-lang="en">I'm based in Milan and work as an independent contractor.</p>
+      <div class="about-details">
+        <div>
+          <span class="detail-label"><span data-lang="pl">Lokalizacja</span><span data-lang="en">Location</span></span>
+          <span class="detail-value">Milano, Italy</span>
+        </div>
+        <div>
+          <span class="detail-label"><span data-lang="pl">Języki</span><span data-lang="en">Languages</span></span>
+          <span class="detail-value" data-lang="pl">Polski · Angielski · Włoski</span>
+          <span class="detail-value" data-lang="en">Polish · English · Italian</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="socials">
+  <span class="section-label" style="text-align:center;display:block;margin-bottom:32px;"><span data-lang="pl">znajdź mnie tutaj</span><span data-lang="en">find me here</span></span>
+  <div class="social-links">
+    <a href="https://www.instagram.com/" target="_blank" class="social-link">
+      <svg viewBox="0 0 28 28" fill="none">
+        <rect x="4" y="4" width="20" height="20" rx="6" stroke="#E07A5F" stroke-width="1.5"/>
+        <circle cx="14" cy="14" r="5" stroke="#E07A5F" stroke-width="1.5"/>
+        <circle cx="20" cy="8" r="1.5" fill="#E07A5F"/>
+      </svg>
+      <span class="social-link-name">Instagram</span>
+    </a>
+    <a href="https://www.linkedin.com/in/nataliaborzyk" target="_blank" class="social-link">
+      <svg viewBox="0 0 28 28" fill="none">
+        <rect x="4" y="4" width="20" height="20" rx="4" stroke="#E07A5F" stroke-width="1.5"/>
+        <circle cx="9.5" cy="10" r="1.5" fill="#E07A5F"/>
+        <line x1="9.5" y1="13" x2="9.5" y2="20" stroke="#E07A5F" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M13 13 L13 20 M13 16 C13 13 19 13 19 16 L19 20" stroke="#E07A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <span class="social-link-name">LinkedIn</span>
+    </a>
+    <a href="https://www.linktr.ee/batalja" target="_blank" class="social-link">
+      <svg viewBox="0 0 28 28" fill="none">
+        <path d="M14 5 L14 18" stroke="#E07A5F" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M9 10 L14 5 L19 10" stroke="#E07A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M7 14 L14 7 L21 14" stroke="#E07A5F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity=".4"/>
+        <line x1="11" y1="22" x2="17" y2="22" stroke="#E07A5F" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="12" y1="25" x2="16" y2="25" stroke="#E07A5F" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+      </svg>
+      <span class="social-link-name">Linktree</span>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <a href="index.html" class="footer-logo">Natalia Borzyk</a>
+  <span class="footer-copy">&#169; 2026 Natalia Borzyk &middot; Milano</span>
+  <div class="footer-links">
+    <a href="wzory.html"><span data-lang="pl">Wzory</span><span data-lang="en">Patterns</span></a>
+    <a href="digital.html">Digital</a>
+    <a href="print.html">Print</a>
+    <a href="etykiety.html"><span data-lang="pl">Etykiety</span><span data-lang="en">Labels</span></a>
+    <a href="branding.html">Branding</a>
+    <a href="kontakt.html"><span data-lang="pl">Kontakt</span><span data-lang="en">Contact</span></a>
+  </div>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.body.classList.toggle('en', lang === 'en');
+  document.querySelectorAll('.lang-btn').forEach(b =>
+    b.classList.toggle('active', b.textContent === lang.toUpperCase())
+  );
+  localStorage.setItem('nb_lang', lang);
+}
+(function(){
+  const s = localStorage.getItem('nb_lang');
+  if (s === 'en') setLang('en');
+})();
+</script>
+</body>
+</html>
