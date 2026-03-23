@@ -164,6 +164,8 @@ main { margin-top:var(--nav-h); }
   background:var(--light);
   -webkit-tap-highlight-color:rgba(0,0,0,0);
   touch-action:manipulation;
+  display:block;
+  text-decoration:none;
 }
 .p-tile img {
   width:100%;
@@ -459,7 +461,7 @@ footer { background:var(--dark); padding:32px 80px; display:flex; justify-conten
          cover:  zdjęcie okładkowe kafelka
          images: lista zdjęć w lightboxie (dodaj tyle ile chcesz)
          title / desc: tekst w obu językach -->
-    <a class="p-tile" data-project="0" href="javascript:void(0)" onclick="openLightbox(0)">
+    <a class="p-tile" data-project="0" href="#" onclick="openLightbox(0);return false;">
       <img src="print/p1-cover.jpg" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="p-tile-ph">Project 1</div>
       <div class="p-tile-overlay">
@@ -474,7 +476,7 @@ footer { background:var(--dark); padding:32px 80px; display:flex; justify-conten
     </a>
 
     <!-- ─ PROJEKT 2 ─ -->
-    <a class="p-tile" data-project="1" href="javascript:void(0)" onclick="openLightbox(1)">
+    <a class="p-tile" data-project="1" href="#" onclick="openLightbox(1);return false;">
       <img src="print/p2-cover.jpg" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="p-tile-ph">Project 2</div>
       <div class="p-tile-overlay">
@@ -489,7 +491,7 @@ footer { background:var(--dark); padding:32px 80px; display:flex; justify-conten
     </a>
 
     <!-- ─ PROJEKT 3 ─ -->
-    <a class="p-tile" data-project="2" href="javascript:void(0)" onclick="openLightbox(2)">
+    <a class="p-tile" data-project="2" href="#" onclick="openLightbox(2);return false;">
       <img src="print/p3-cover.jpg" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="p-tile-ph">Project 3</div>
       <div class="p-tile-overlay">
@@ -504,7 +506,7 @@ footer { background:var(--dark); padding:32px 80px; display:flex; justify-conten
     </a>
 
     <!-- ─ PROJEKT 4 ─ -->
-    <a class="p-tile" data-project="3" href="javascript:void(0)" onclick="openLightbox(3)">
+    <a class="p-tile" data-project="3" href="#" onclick="openLightbox(3);return false;">
       <img src="print/p4-cover.jpg" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="p-tile-ph">Project 4</div>
       <div class="p-tile-overlay">
@@ -521,7 +523,7 @@ footer { background:var(--dark); padding:32px 80px; display:flex; justify-conten
 
 
     <!-- ─ PROJEKT 5 ─ -->
-    <a class="p-tile" data-project="4" href="javascript:void(0)" onclick="openLightbox(4)">
+    <a class="p-tile" data-project="4" href="#" onclick="openLightbox(4);return false;">
       <img src="print/p5-cover.jpg" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="p-tile-ph">Project 5</div>
       <div class="p-tile-overlay">
@@ -536,7 +538,7 @@ footer { background:var(--dark); padding:32px 80px; display:flex; justify-conten
     </a>
 
     <!-- ─ PROJEKT 6 ─ -->
-    <a class="p-tile" data-project="5" href="javascript:void(0)" onclick="openLightbox(5)">
+    <a class="p-tile" data-project="5" href="#" onclick="openLightbox(5);return false;">
       <img src="print/p6-cover.jpg" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="p-tile-ph">Project 6</div>
       <div class="p-tile-overlay">
@@ -552,7 +554,7 @@ footer { background:var(--dark); padding:32px 80px; display:flex; justify-conten
 
     <!-- ─ PROJEKTY 7–10: odkomentuj kiedy będą gotowe ─
 
-    <a class="p-tile" data-project="6" href="javascript:void(0)" onclick="openLightbox(6)">
+    <a class="p-tile" data-project="6" href="#" onclick="openLightbox(6);return false;">
       <img src="print/p7-cover.jpg" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="p-tile-ph">Project 7</div>
       <div class="p-tile-overlay">
@@ -567,7 +569,7 @@ footer { background:var(--dark); padding:32px 80px; display:flex; justify-conten
     </a>
 
     <!-- ─ PROJEKT 8 ─ -->
-    <a class="p-tile" data-project="7" href="javascript:void(0)" onclick="openLightbox(7)">
+    <a class="p-tile" data-project="7" href="#" onclick="openLightbox(7);return false;">
       <img src="print/p8-cover.jpg" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="p-tile-ph">Project 8</div>
       <div class="p-tile-overlay">
@@ -582,7 +584,7 @@ footer { background:var(--dark); padding:32px 80px; display:flex; justify-conten
     </a>
 
     <!-- ─ PROJEKT 9 ─ -->
-    <a class="p-tile" data-project="8" href="javascript:void(0)" onclick="openLightbox(8)">
+    <a class="p-tile" data-project="8" href="#" onclick="openLightbox(8);return false;">
       <img src="print/p9-cover.jpg" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="p-tile-ph">Project 9</div>
       <div class="p-tile-overlay">
@@ -597,7 +599,7 @@ footer { background:var(--dark); padding:32px 80px; display:flex; justify-conten
     </a>
 
     <!-- ─ PROJEKT 10 ─ -->
-    <a class="p-tile" data-project="9" href="javascript:void(0)" onclick="openLightbox(9)">
+    <a class="p-tile" data-project="9" href="#" onclick="openLightbox(9);return false;">
       <img src="print/p10-cover.jpg" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="p-tile-ph">Project 10</div>
       <div class="p-tile-overlay">
