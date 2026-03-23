@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Print — Natalia Borzyk</title>
+<title>Print · Natalia Borzyk</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -190,6 +190,17 @@ main { margin-top:var(--nav-h); }
   justify-content:flex-end;
   padding:32px;
   transition:background .35s ease;
+  pointer-events:none;
+}
+@media (hover:none) {
+  .p-tile-overlay {
+    background:rgba(28,25,23,.55);
+    pointer-events:none;
+  }
+  .p-tile-overlay-content {
+    transform:translateY(0) !important;
+    opacity:1 !important;
+  }
 }
 .p-tile-overlay-content {
   transform:translateY(12px);
@@ -447,8 +458,8 @@ footer { background:var(--dark); padding:32px 80px; display:flex; justify-conten
         <div class="p-tile-overlay-content">
           <div class="p-tile-title" data-lang="pl">Nazwa projektu 1</div>
           <div class="p-tile-title" data-lang="en">Project name 1</div>
-          <div class="p-tile-desc" data-lang="pl">Krótki opis projektu — typ, klient, technika.</div>
-          <div class="p-tile-desc" data-lang="en">Short project description — type, client, technique.</div>
+          <div class="p-tile-desc" data-lang="pl">Krótki opis projektu · typ, klient, technika.</div>
+          <div class="p-tile-desc" data-lang="en">Short project description · type, client, technique.</div>
           <span class="p-tile-cta"><span data-lang="pl">Zobacz więcej</span><span data-lang="en">View project</span> →</span>
         </div>
       </div>
@@ -462,8 +473,8 @@ footer { background:var(--dark); padding:32px 80px; display:flex; justify-conten
         <div class="p-tile-overlay-content">
           <div class="p-tile-title" data-lang="pl">Nazwa projektu 2</div>
           <div class="p-tile-title" data-lang="en">Project name 2</div>
-          <div class="p-tile-desc" data-lang="pl">Krótki opis projektu — typ, klient, technika.</div>
-          <div class="p-tile-desc" data-lang="en">Short project description — type, client, technique.</div>
+          <div class="p-tile-desc" data-lang="pl">Krótki opis projektu · typ, klient, technika.</div>
+          <div class="p-tile-desc" data-lang="en">Short project description · type, client, technique.</div>
           <span class="p-tile-cta"><span data-lang="pl">Zobacz więcej</span><span data-lang="en">View project</span> →</span>
         </div>
       </div>
@@ -477,8 +488,8 @@ footer { background:var(--dark); padding:32px 80px; display:flex; justify-conten
         <div class="p-tile-overlay-content">
           <div class="p-tile-title" data-lang="pl">Nazwa projektu 3</div>
           <div class="p-tile-title" data-lang="en">Project name 3</div>
-          <div class="p-tile-desc" data-lang="pl">Krótki opis projektu — typ, klient, technika.</div>
-          <div class="p-tile-desc" data-lang="en">Short project description — type, client, technique.</div>
+          <div class="p-tile-desc" data-lang="pl">Krótki opis projektu · typ, klient, technika.</div>
+          <div class="p-tile-desc" data-lang="en">Short project description · type, client, technique.</div>
           <span class="p-tile-cta"><span data-lang="pl">Zobacz więcej</span><span data-lang="en">View project</span> →</span>
         </div>
       </div>
@@ -492,8 +503,8 @@ footer { background:var(--dark); padding:32px 80px; display:flex; justify-conten
         <div class="p-tile-overlay-content">
           <div class="p-tile-title" data-lang="pl">Nazwa projektu 4</div>
           <div class="p-tile-title" data-lang="en">Project name 4</div>
-          <div class="p-tile-desc" data-lang="pl">Krótki opis projektu — typ, klient, technika.</div>
-          <div class="p-tile-desc" data-lang="en">Short project description — type, client, technique.</div>
+          <div class="p-tile-desc" data-lang="pl">Krótki opis projektu · typ, klient, technika.</div>
+          <div class="p-tile-desc" data-lang="en">Short project description · type, client, technique.</div>
           <span class="p-tile-cta"><span data-lang="pl">Zobacz więcej</span><span data-lang="en">View project</span> →</span>
         </div>
       </div>
@@ -509,8 +520,8 @@ footer { background:var(--dark); padding:32px 80px; display:flex; justify-conten
         <div class="p-tile-overlay-content">
           <div class="p-tile-title" data-lang="pl">Nazwa projektu 5</div>
           <div class="p-tile-title" data-lang="en">Project name 5</div>
-          <div class="p-tile-desc" data-lang="pl">Krótki opis projektu — typ, klient, technika.</div>
-          <div class="p-tile-desc" data-lang="en">Short project description — type, client, technique.</div>
+          <div class="p-tile-desc" data-lang="pl">Krótki opis projektu · typ, klient, technika.</div>
+          <div class="p-tile-desc" data-lang="en">Short project description · type, client, technique.</div>
           <span class="p-tile-cta"><span data-lang="pl">Zobacz więcej</span><span data-lang="en">View project</span> →</span>
         </div>
       </div>
@@ -524,8 +535,8 @@ footer { background:var(--dark); padding:32px 80px; display:flex; justify-conten
         <div class="p-tile-overlay-content">
           <div class="p-tile-title" data-lang="pl">Nazwa projektu 6</div>
           <div class="p-tile-title" data-lang="en">Project name 6</div>
-          <div class="p-tile-desc" data-lang="pl">Krótki opis projektu — typ, klient, technika.</div>
-          <div class="p-tile-desc" data-lang="en">Short project description — type, client, technique.</div>
+          <div class="p-tile-desc" data-lang="pl">Krótki opis projektu · typ, klient, technika.</div>
+          <div class="p-tile-desc" data-lang="en">Short project description · type, client, technique.</div>
           <span class="p-tile-cta"><span data-lang="pl">Zobacz więcej</span><span data-lang="en">View project</span> →</span>
         </div>
       </div>
@@ -540,8 +551,8 @@ footer { background:var(--dark); padding:32px 80px; display:flex; justify-conten
         <div class="p-tile-overlay-content">
           <div class="p-tile-title" data-lang="pl">Nazwa projektu 7</div>
           <div class="p-tile-title" data-lang="en">Project name 7</div>
-          <div class="p-tile-desc" data-lang="pl">Krótki opis projektu — typ, klient, technika.</div>
-          <div class="p-tile-desc" data-lang="en">Short project description — type, client, technique.</div>
+          <div class="p-tile-desc" data-lang="pl">Krótki opis projektu · typ, klient, technika.</div>
+          <div class="p-tile-desc" data-lang="en">Short project description · type, client, technique.</div>
           <span class="p-tile-cta"><span data-lang="pl">Zobacz więcej</span><span data-lang="en">View project</span> →</span>
         </div>
       </div>
@@ -555,8 +566,8 @@ footer { background:var(--dark); padding:32px 80px; display:flex; justify-conten
         <div class="p-tile-overlay-content">
           <div class="p-tile-title" data-lang="pl">Nazwa projektu 8</div>
           <div class="p-tile-title" data-lang="en">Project name 8</div>
-          <div class="p-tile-desc" data-lang="pl">Krótki opis projektu — typ, klient, technika.</div>
-          <div class="p-tile-desc" data-lang="en">Short project description — type, client, technique.</div>
+          <div class="p-tile-desc" data-lang="pl">Krótki opis projektu · typ, klient, technika.</div>
+          <div class="p-tile-desc" data-lang="en">Short project description · type, client, technique.</div>
           <span class="p-tile-cta"><span data-lang="pl">Zobacz więcej</span><span data-lang="en">View project</span> →</span>
         </div>
       </div>
@@ -570,8 +581,8 @@ footer { background:var(--dark); padding:32px 80px; display:flex; justify-conten
         <div class="p-tile-overlay-content">
           <div class="p-tile-title" data-lang="pl">Nazwa projektu 9</div>
           <div class="p-tile-title" data-lang="en">Project name 9</div>
-          <div class="p-tile-desc" data-lang="pl">Krótki opis projektu — typ, klient, technika.</div>
-          <div class="p-tile-desc" data-lang="en">Short project description — type, client, technique.</div>
+          <div class="p-tile-desc" data-lang="pl">Krótki opis projektu · typ, klient, technika.</div>
+          <div class="p-tile-desc" data-lang="en">Short project description · type, client, technique.</div>
           <span class="p-tile-cta"><span data-lang="pl">Zobacz więcej</span><span data-lang="en">View project</span> →</span>
         </div>
       </div>
@@ -585,8 +596,8 @@ footer { background:var(--dark); padding:32px 80px; display:flex; justify-conten
         <div class="p-tile-overlay-content">
           <div class="p-tile-title" data-lang="pl">Nazwa projektu 10</div>
           <div class="p-tile-title" data-lang="en">Project name 10</div>
-          <div class="p-tile-desc" data-lang="pl">Krótki opis projektu — typ, klient, technika.</div>
-          <div class="p-tile-desc" data-lang="en">Short project description — type, client, technique.</div>
+          <div class="p-tile-desc" data-lang="pl">Krótki opis projektu · typ, klient, technika.</div>
+          <div class="p-tile-desc" data-lang="en">Short project description · type, client, technique.</div>
           <span class="p-tile-cta"><span data-lang="pl">Zobacz więcej</span><span data-lang="en">View project</span> →</span>
         </div>
       </div>
