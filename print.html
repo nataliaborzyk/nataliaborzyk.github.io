@@ -194,6 +194,7 @@ main { margin-top:var(--nav-h); }
   transition:background .35s ease;
   pointer-events:none;
 }
+.p-tile-overlay * { pointer-events:none; }
 @media (hover:none) {
   .p-tile-overlay {
     background:rgba(28,25,23,.55);
@@ -832,16 +833,6 @@ function renderLightbox() {
 /* ── TILE CLICK / TAP ── */
 document.querySelectorAll('.p-tile').forEach(tile => {
   const idx = parseInt(tile.dataset.project);
-  let touchMoved = false;
-
-  tile.addEventListener('touchstart', () => { touchMoved = false; }, { passive: true });
-  tile.addEventListener('touchmove',  () => { touchMoved = true;  }, { passive: true });
-  tile.addEventListener('touchend', e => {
-    if (!touchMoved) {
-      e.preventDefault();
-      openLightbox(idx);
-    }
-  });
   tile.addEventListener('click', () => openLightbox(idx));
 });
 document.addEventListener('keydown', e => {
