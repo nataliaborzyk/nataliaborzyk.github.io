@@ -62,8 +62,22 @@ header {
   color:var(--mid);
   transition:color .2s;
   white-space:nowrap;
+  position:relative;
+  padding-bottom:4px;
+}
+.nav-list a::after {
+  content:'';
+  position:absolute;
+  bottom:0; left:0;
+  width:0;
+  height:1.5px;
+  background:var(--coral);
+  transition:width .25s ease;
 }
 .nav-list a:hover { color:var(--coral); }
+.nav-list a:hover::after { width:100%; }
+.nav-list a.active { color:var(--coral); }
+.nav-list a.active::after { width:100%; }
 .lang-toggle {
   display:flex;
   gap:2px;
@@ -177,12 +191,12 @@ footer { background:var(--dark); padding:32px 80px; display:flex; justify-conten
   <nav>
     <ul class="nav-list">
       <li><a href="index.html"><span data-lang="pl">Strona główna</span><span data-lang="en">Home</span></a></li>
-      <li><a href="wzory.html"><span data-lang="pl">Wzory &amp; ilustracje</span><span data-lang="en">Patterns &amp; illustration</span></a></li>
+      <li><a href="patterns.html"><span data-lang="pl">Wzory &amp; ilustracje</span><span data-lang="en">Patterns &amp; illustration</span></a></li>
       <li><a href="digital.html">Digital</a></li>
       <li><a href="print.html">Print</a></li>
-      <li><a href="etykiety.html"><span data-lang="pl">Etykiety &amp; opakowania</span><span data-lang="en">Labels &amp; packaging</span></a></li>
+      <li><a href="labels.html"><span data-lang="pl">Etykiety &amp; opakowania</span><span data-lang="en">Labels &amp; packaging</span></a></li>
       <li><a href="branding.html">Logo &amp; Branding</a></li>
-      <li><a href="kontakt.html"><span data-lang="pl">Kontakt</span><span data-lang="en">Contact</span></a></li>
+      <li><a href="contact.html"><span data-lang="pl">Kontakt</span><span data-lang="en">Contact</span></a></li>
     </ul>
   </nav>
   <div class="lang-toggle">

@@ -62,8 +62,22 @@ header {
   color:var(--mid);
   transition:color .2s;
   white-space:nowrap;
+  position:relative;
+  padding-bottom:4px;
 }
-.nav-list a:hover, .nav-list a.active { color:var(--coral); }
+.nav-list a::after {
+  content:'';
+  position:absolute;
+  bottom:0; left:0;
+  width:0;
+  height:1.5px;
+  background:var(--coral);
+  transition:width .25s ease;
+}
+.nav-list a:hover { color:var(--coral); }
+.nav-list a:hover::after { width:100%; }
+.nav-list a.active { color:var(--coral); }
+.nav-list a.active::after { width:100%; }
 .lang-toggle {
   display:flex;
   gap:2px;
