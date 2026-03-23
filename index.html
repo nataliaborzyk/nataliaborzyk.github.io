@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -89,11 +89,11 @@ header {
 .lang-btn.active { background:var(--coral); color:var(--white); }
 
 /* ── LANG ── */
-[data-lang="en"]             { display:none; }
-body.en [data-lang="pl"]     { display:none; }
-body.en [data-lang="en"]     { display:block; }
-body.en span[data-lang="en"] { display:inline; }
-body.en span[data-lang="pl"] { display:none; }
+[data-lang="pl"]              { display:none; }
+body.pl [data-lang="en"]      { display:none; }
+body.pl [data-lang="pl"]      { display:block; }
+body.pl span[data-lang="pl"]  { display:inline; }
+body.pl span[data-lang="en"]  { display:none; }
 
 /* ── MAIN ── */
 main { margin-top:var(--nav-h); }
@@ -298,8 +298,8 @@ footer { background:var(--dark); padding:32px 80px; display:flex; justify-conten
     </ul>
   </nav>
   <div class="lang-toggle">
-    <button class="lang-btn active" onclick="setLang('pl')">PL</button>
-    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('pl')">PL</button>
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
   </div>
 </header>
 
@@ -514,7 +514,7 @@ footer { background:var(--dark); padding:32px 80px; display:flex; justify-conten
 
 <script>
 function setLang(lang) {
-  document.body.classList.toggle('en', lang === 'en');
+  document.body.classList.toggle('pl', lang === 'pl');
   document.querySelectorAll('.lang-btn').forEach(b =>
     b.classList.toggle('active', b.textContent === lang.toUpperCase())
   );
@@ -522,7 +522,7 @@ function setLang(lang) {
 }
 (function(){
   const s = localStorage.getItem('nb_lang');
-  if (s === 'en') setLang('en');
+  if (s === 'pl') setLang('pl');
 })();
 </script>
 </body>
