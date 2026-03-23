@@ -8,6 +8,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
+@font-face {
+  font-family: 'Loverine';
+  src: url('Loverine.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 :root {
   --coral:      #E07A5F;
   --coral-soft: #F2B5A0;
@@ -115,24 +121,19 @@ main { margin-top:var(--nav-h); }
 /* ── PAGE CONTENT ── */
 .page-hero {
   background:var(--coral-pale);
-  padding:72px 80px 56px;
+  padding:56px 80px;
   border-bottom:1px solid var(--border);
-}
-.page-label {
-  font-size:10px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  color:var(--coral);
-  font-weight:400;
-  display:block;
-  margin-bottom:12px;
+  display:flex;
+  align-items:center;
+  min-height:160px;
 }
 .page-title {
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(36px,5vw,60px);
-  font-weight:300;
+  font-family:'Loverine', 'Cormorant Garamond', serif;
+  font-size:clamp(36px,5vw,64px);
+  font-weight:normal;
   line-height:1.1;
   color:var(--dark);
+  text-transform:lowercase;
   font-style:normal;
 }
 
@@ -244,7 +245,7 @@ footer { background:var(--dark); padding:32px 80px; display:flex; justify-conten
   <p data-lang="pl">W przypadku pytań dotyczących niniejszej polityki prywatności lub przetwarzania danych osobowych prosimy o kontakt za pośrednictwem formularza kontaktowego dostępnego na stronie głównej.</p>
   <p data-lang="en">If you have any questions regarding this privacy policy or the processing of your personal data, please get in touch via the contact form available on the home page.</p>
 
-  <h2><span data-lang="pl">8. Przekazywanie danych poza EOG</span><span data-lang="en">8. International transfers</span></h2>
+  <h2><span data-lang="pl">8. Przekazywanie danych poza EOG</span><span data-lang="en">8. Transfers of personal data</span></h2>
   <p data-lang="pl">Dane osobowe są przetwarzane i przechowywane na terenie Unii Europejskiej / Europejskiego Obszaru Gospodarczego. Nie przewiduje się przekazywania danych osobowych do państw trzecich poza UE/EOG.</p>
   <p data-lang="en">Personal data are processed and stored within the European Union/European Economic Area. No transfers of personal data to third countries outside the EU/EEA are envisaged.</p>
 
