@@ -59,7 +59,7 @@ main { margin-top:var(--nav-h); }
 /* TILE */
 .p-tile { position:relative; aspect-ratio:1/1; overflow:hidden; background:var(--light); cursor:pointer; border:none; padding:0; display:block; width:100%; }
 .p-tile-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
-.p-tile-overlay { position:absolute; inset:0; background:rgba(28,25,23,0); display:flex; flex-direction:column; justify-content:flex-end; padding:32px; transition:background .35s ease; pointer-events:none; }
+.p-tile-overlay { position:absolute; inset:0; background:rgba(28,25,23,0); display:flex; flex-direction:column; justify-content:flex-end; padding:32px; transition:background .35s ease; pointer-events:none; text-align:left; }
 .p-tile-content { transform:translateY(12px); opacity:0; transition:all .35s ease; }
 .p-tile:hover .p-tile-img { transform:scale(1.04); }
 .p-tile:hover .p-tile-overlay { background:rgba(28,25,23,.62); }
