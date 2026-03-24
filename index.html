@@ -266,8 +266,10 @@ footer { background:var(--white); border-top:1px solid var(--border); padding:32
 .footer-logo { font-family:'DM Serif Display',serif; font-size:18px; font-weight:400; color:var(--dark); letter-spacing:.04em; }
 .footer-copy { font-size:11px; color:var(--mid); letter-spacing:.06em; }
 .footer-links { display:flex; gap:20px; }
-.footer-links a { font-size:10px; letter-spacing:.12em; text-transform:uppercase; font-weight:400; color:var(--coral); transition:color .2s; }
-.footer-links a:hover { color:var(--dark); }
+.footer-links a { font-size:10px; letter-spacing:.12em; text-transform:uppercase; font-weight:400; color:var(--mid); transition:color .2s; position:relative; padding-bottom:4px; }
+.footer-links a::after { content:""; position:absolute; bottom:0; left:0; width:0; height:1.5px; background:var(--coral); transition:width .25s ease; }
+.footer-links a:hover::after { width:100%; }
+.footer-links a:hover { color:var(--coral); }
 
 /* ── ANIMATIONS ── */
 @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
