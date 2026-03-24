@@ -311,7 +311,7 @@ const projects = [
     titlePl:'Nazwa projektu 3', titleEn:'Project name 3',
     descPl:'Opis projektu po polsku.', descEn:'Project description in English.',
     cover:'print/p3-cover.jpg',
-    images:['print/p3-1.jpg','print/p3-2.jpg','print/p3-3.jpg']
+    images:['print/p3-1.jpg','print/p3-2.jpg','print/p3-3.jpg','print/p3-4.jpg','print/p3-5.jpg']
   },
   {
     titlePl:'Nazwa projektu 4', titleEn:'Project name 4',
@@ -346,8 +346,8 @@ projects.forEach((p, i) => {
   btn.type = 'button';
   btn.className = 'p-tile';
   btn.innerHTML = `
-    <img src="${p.cover}" alt="" onerror="this.style.display='none'">
-    <div class="p-tile-ph">Project ${i+1}</div>
+    <img src="${p.cover}" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" onload="this.nextElementSibling.style.display='none'" onerror="this.style.display='none'">
+    <div class="p-tile-ph" style="position:absolute;inset:0;">Project ${i+1}</div>
     <div class="p-tile-overlay">
       <div class="p-tile-overlay-content">
         <div class="p-tile-title" data-lang="pl">${p.titlePl}</div>
