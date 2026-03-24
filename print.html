@@ -53,12 +53,6 @@ body.pl [data-lang="en"]     { display:none; }
 body.pl [data-lang="pl"]     { display:block; }
 body.pl span[data-lang="pl"] { display:inline; }
 body.pl span[data-lang="en"] { display:none; }
-.p-tile-title[data-lang="en"],
-.p-tile-desc[data-lang="en"]  { display:block; }
-body.pl .p-tile-title[data-lang="en"],
-body.pl .p-tile-desc[data-lang="en"]  { display:none; }
-body.pl .p-tile-title[data-lang="pl"],
-body.pl .p-tile-desc[data-lang="pl"]  { display:block; }
 
 /* ── MAIN ── */
 main { margin-top:var(--nav-h); }
@@ -219,6 +213,8 @@ function setLang(lang) {
     b.classList.toggle('active', b.textContent === lang.toUpperCase())
   );
   localStorage.setItem('nb_lang', lang);
+  if (typeof buildGrid === 'function') buildGrid();
+  if (typeof currentProject !== 'undefined' && currentProject !== null) renderLightbox();
 }
 (function(){
   if (localStorage.getItem('nb_lang') === 'pl') setLang('pl');
@@ -274,26 +270,31 @@ const projects = [
 ];
 
 /* ── BUILD GRID ── */
-const grid = document.getElementById('portfolio-grid');
-projects.forEach(function(p, i) {
-  var btn = document.createElement('button');
-  btn.type = 'button';
-  btn.className = 'p-tile';
-  btn.innerHTML =
-    '<img src="' + p.cover + '" alt="">' +
-    '<div class="p-tile-ph">Project ' + (i+1) + '</div>' +
-    '<div class="p-tile-overlay">' +
-      '<div class="p-tile-overlay-content">' +
-        '<div class="p-tile-title" data-lang="pl">' + p.titlePl + '</div>' +
-        '<div class="p-tile-title" data-lang="en">' + p.titleEn + '</div>' +
-        '<div class="p-tile-desc" data-lang="pl">' + p.descPl + '</div>' +
-        '<div class="p-tile-desc" data-lang="en">' + p.descEn + '</div>' +
-        '<span class="p-tile-cta"><span data-lang="pl">Zobacz więcej</span><span data-lang="en">View project</span> →</span>' +
-      '</div>' +
-    '</div>';
-  btn.addEventListener('click', function() { openLightbox(i); });
-  grid.appendChild(btn);
-});
+var grid = document.getElementById('portfolio-grid');
+
+function buildGrid() {
+  grid.innerHTML = '';
+  projects.forEach(function(p, i) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'p-tile';
+    var pl = isPl();
+    btn.innerHTML =
+      '<img src="' + p.cover + '" alt="">' +
+      '<div class="p-tile-ph">Project ' + (i+1) + '</div>' +
+      '<div class="p-tile-overlay">' +
+        '<div class="p-tile-overlay-content">' +
+          '<div class="p-tile-title">' + (pl ? p.titlePl : p.titleEn) + '</div>' +
+          '<div class="p-tile-desc">' + (pl ? p.descPl : p.descEn) + '</div>' +
+          '<span class="p-tile-cta">' + (pl ? 'Zobacz więcej' : 'View project') + ' →</span>' +
+        '</div>' +
+      '</div>';
+    btn.addEventListener('click', function() { openLightbox(i); });
+    grid.appendChild(btn);
+  });
+}
+
+buildGrid();
 
 /* ── LIGHTBOX ── */
 var currentProject = null;
