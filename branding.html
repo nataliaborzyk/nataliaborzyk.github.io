@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logo & Branding · Natalia Borzyk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --coral:      #9B89C4;
+  --coral-soft: #C4B8E0;
+  --coral-pale: #F4F1FA;
+  --dark:       #1C1917;
+  --mid:        #78716C;
+  --light:      #F7F4F2;
+  --white:      #FFFFFF;
+  --border:     #E3DDF0;
+  --nav-h:      58px;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Poppins',sans-serif; font-weight:300; color:var(--dark); background:var(--white); overflow-x:hidden; }
+img { display:block; max-width:100%; }
+a { color:inherit; text-decoration:none; }
+
+/* HEADER */
+header { position:fixed; top:0; left:0; right:0; z-index:300; height:var(--nav-h); background:rgba(255,255,255,.97); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; padding:0 48px; }
+.nav-logo { font-family:'DM Serif Display',serif; font-size:19px; font-weight:400; letter-spacing:.04em; color:var(--dark); flex-shrink:0; white-space:nowrap; }
+.nav-list { display:flex; align-items:center; gap:22px; list-style:none; }
+.nav-list a { font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; font-weight:400; color:var(--mid); transition:color .2s; white-space:nowrap; position:relative; padding-bottom:4px; }
+.nav-list a::after { content:''; position:absolute; bottom:0; left:0; width:0; height:1.5px; background:var(--coral); transition:width .25s ease; }
+.nav-list a:hover { color:var(--coral); }
+.nav-list a:hover::after { width:100%; }
+.nav-list a.active { color:var(--coral); }
+.nav-list a.active::after { width:100%; }
+.lang-toggle { display:flex; gap:2px; background:var(--light); border-radius:20px; padding:3px; margin-left:16px; flex-shrink:0; }
+.lang-btn { font-size:10px; letter-spacing:.1em; font-family:'Poppins',sans-serif; font-weight:400; background:none; border:none; cursor:pointer; padding:4px 11px; border-radius:16px; color:var(--mid); transition:all .2s; }
+.lang-btn.active { background:var(--coral); color:var(--white); }
+
+/* LANG - only for static HTML elements */
+[data-lang="pl"] { display:none; }
+body.pl [data-lang="en"] { display:none; }
+body.pl [data-lang="pl"] { display:block; }
+body.pl span[data-lang="pl"] { display:inline; }
+body.pl span[data-lang="en"] { display:none; }
+
+main { margin-top:var(--nav-h); }
+
+/* PAGE HERO */
+.page-hero { background:var(--coral-pale); padding:56px 80px; border-bottom:1px solid var(--border); display:flex; align-items:center; min-height:160px; }
+.page-title { font-family:'DM Serif Display',serif; font-size:clamp(40px,5.5vw,68px); font-weight:300; line-height:1.1; color:var(--dark); }
+
+/* PORTFOLIO GRID */
+.portfolio-section { padding:64px 80px 96px; }
+.portfolio-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; }
+
+/* TILE */
+.p-tile { position:relative; aspect-ratio:1/1; overflow:hidden; background:var(--light); cursor:pointer; border:none; padding:0; display:block; width:100%; }
+.p-tile-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+.p-tile-overlay { position:absolute; inset:0; background:rgba(28,25,23,0); display:flex; flex-direction:column; justify-content:flex-end; padding:32px; transition:background .35s ease; pointer-events:none; text-align:left; }
+.p-tile-content { transform:translateY(12px); opacity:0; transition:all .35s ease; text-align:left; }
+.p-tile:hover .p-tile-img { transform:scale(1.04); }
+.p-tile:hover .p-tile-overlay { background:rgba(28,25,23,.62); }
+.p-tile:hover .p-tile-content { transform:translateY(0); opacity:1; }
+.p-tile-title { font-family:'DM Serif Display',serif; font-size:22px; color:var(--white); line-height:1.2; margin-bottom:6px; }
+.p-tile-desc { font-size:11px; letter-spacing:.08em; color:rgba(255,255,255,.7); font-weight:300; line-height:1.6; }
+.p-tile-cta { display:inline-block; margin-top:14px; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--coral-soft); font-weight:400; }
+@media (hover:none) {
+  .p-tile-overlay { background:rgba(28,25,23,.55); }
+  .p-tile-content { transform:translateY(0); opacity:1; }
+}
+
+/* LIGHTBOX */
+.lb-overlay { display:none; position:fixed; inset:0; z-index:500; background:rgba(28,25,23,.92); backdrop-filter:blur(4px); }
+.lb-overlay.open { display:block; }
+.lb-box { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:90vw; max-width:1100px; max-height:90vh; display:grid; grid-template-columns:1fr 380px; background:var(--white); overflow:hidden; }
+.lb-img-wrap { position:relative; background:var(--light); aspect-ratio:1/1; overflow:hidden; }
+.lb-img-wrap img { width:100%; height:100%; object-fit:cover; display:block; }
+.lb-prev, .lb-next { position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,.9); border:none; cursor:pointer; width:40px; height:40px; display:flex; align-items:center; justify-content:center; font-size:18px; color:var(--dark); transition:background .2s; z-index:10; }
+.lb-prev { left:12px; } .lb-next { right:12px; }
+.lb-prev:hover, .lb-next:hover { background:var(--white); }
+.lb-counter { position:absolute; bottom:12px; left:50%; transform:translateX(-50%); font-size:10px; letter-spacing:.1em; color:var(--mid); }
+.lb-info { padding:48px 40px; display:flex; flex-direction:column; justify-content:center; overflow-y:auto; border-left:1px solid var(--border); position:relative; }
+.lb-category { font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--coral); font-weight:400; margin-bottom:12px; }
+.lb-title { font-family:'DM Serif Display',serif; font-size:clamp(24px,2.5vw,32px); color:var(--dark); line-height:1.2; margin-bottom:24px; }
+.lb-desc { font-size:14px; line-height:1.9; color:var(--mid); font-weight:300; }
+.lb-close { position:absolute; top:16px; right:16px; background:none; border:none; cursor:pointer; font-size:22px; color:var(--mid); transition:color .2s; }
+.lb-close:hover { color:var(--coral); }
+.lb-thumbs { display:flex; gap:6px; margin-top:32px; flex-wrap:wrap; }
+.lb-thumb { width:52px; height:52px; object-fit:cover; cursor:pointer; opacity:.5; transition:opacity .2s; border:1.5px solid transparent; }
+.lb-thumb.active, .lb-thumb:hover { opacity:1; border-color:var(--coral); }
+
+/* FLOWER */
+.flower-section { background:var(--white); padding:48px 80px; text-align:center; }
+
+/* FOOTER */
+footer { background:var(--dark); padding:32px 80px; display:flex; justify-content:space-between; align-items:center; }
+.footer-logo { font-family:'DM Serif Display',serif; font-size:18px; font-weight:400; color:rgba(255,255,255,.45); letter-spacing:.04em; }
+.footer-copy { font-size:11px; color:rgba(255,255,255,.22); letter-spacing:.06em; }
+.footer-links { display:flex; gap:20px; }
+.footer-links a { font-size:10px; letter-spacing:.12em; text-transform:uppercase; font-weight:400; color:rgba(255,255,255,.28); transition:color .2s; }
+.footer-links a:hover { color:var(--coral-soft); }
+
+/* RESPONSIVE */
+@media(max-width:1100px) { header { padding:0 28px; } .nav-list { gap:16px; } .portfolio-section { padding:48px 40px 72px; } .lb-box { grid-template-columns:1fr 300px; } .lb-info { padding:32px 28px; } }
+@media(max-width:900px) {
+  .nav-list { display:none; } header { padding:0 24px; }
+  .page-hero { padding:40px 28px; min-height:120px; }
+  .portfolio-section { padding:24px 8px 64px; }
+  .portfolio-grid { grid-template-columns:repeat(2,1fr); gap:2px; }
+  .lb-box { grid-template-columns:1fr; width:96vw; max-height:92vh; overflow-y:auto; }
+  .lb-img-wrap { aspect-ratio:4/3; }
+  .lb-info { border-left:none; border-top:1px solid var(--border); padding:24px 20px; }
+  .flower-section { padding:36px 28px; }
+  footer { flex-direction:column; gap:16px; text-align:center; padding:28px 24px; }
+  .footer-links { justify-content:center; }
+}
+@media(max-width:560px) { .portfolio-grid { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.svg" alt="Natalia Borzyk" style="height:38px;width:auto;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span style="display:none;">Natalia Borzyk</span>
+  </a>
+  <nav>
+    <ul class="nav-list">
+      <li><a href="index.html"><span data-lang="pl">Strona główna</span><span data-lang="en">Home</span></a></li>
+      <li><a href="patterns.html"><span data-lang="pl">Wzory &amp; ilustracje</span><span data-lang="en">Patterns &amp; illustration</span></a></li>
+      <li><a href="digital.html">Digital</a></li>
+      <li><a href="print.html">Print</a></li>
+      <li><a href="labels.html"><span data-lang="pl">Etykiety &amp; opakowania</span><span data-lang="en">Labels &amp; packaging</span></a></li>
+      <li><a href="branding.html" class="active">Logo &amp; Branding</a></li>
+      <li><a href="contact.html"><span data-lang="pl">Kontakt</span><span data-lang="en">Contact</span></a></li>
+    </ul>
+  </nav>
+  <div class="lang-toggle">
+    <button class="lang-btn" onclick="setLang('pl')">PL</button>
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  </div>
+</header>
+
+<main>
+
+<div class="page-hero">
+  <h1 class="page-title">
+    <span data-lang="pl">Logo i branding</span>
+    <span data-lang="en">Logo and branding</span>
+  </h1>
+</div>
+
+<section class="portfolio-section">
+  <div class="portfolio-grid" id="grid"></div>
+</section>
+
+<div class="lb-overlay" id="lb">
+  <div class="lb-box">
+    <div class="lb-img-wrap">
+      <img id="lb-img" src="" alt="">
+      <button class="lb-prev" id="lb-prev">&#8592;</button>
+      <button class="lb-next" id="lb-next">&#8594;</button>
+      <span class="lb-counter" id="lb-counter"></span>
+    </div>
+    <div class="lb-info">
+      <button class="lb-close" id="lb-close">&#10005;</button>
+      <div class="lb-category" id="lb-cat"></div>
+      <h2 class="lb-title" id="lb-title"></h2>
+      <p class="lb-desc" id="lb-desc"></p>
+      <div class="lb-thumbs" id="lb-thumbs"></div>
+    </div>
+  </div>
+</div>
+
+<div class="flower-section">
+  <img src="flower.svg" alt="" style="max-width:160px;width:100%;height:auto;margin:0 auto;">
+</div>
+
+</main>
+
+<footer>
+  <a href="index.html" class="footer-logo">
+    <img src="logo-inverse.svg" alt="Natalia Borzyk" style="height:32px;width:auto;" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span style="display:none;">Natalia Borzyk</span>
+  </a>
+  <span class="footer-copy">&#169; 2026 Natalia Borzyk</span>
+  <div class="footer-links">
+    <a href="privacy-policy.html"><span data-lang="pl">Polityka prywatności</span><span data-lang="en">Privacy policy</span></a>
+  </div>
+</footer>
+
+<script>
+/* ========================================
+   PROJECTS DATA
+   Aby dodać projekt: skopiuj blok {} i uzupełnij.
+   Aby mieć mniej zdjęć w galerii: skróć tablicę images.
+   ======================================== */
+var projects = [
+  {
+    titlePl: 'Nazwa projektu 1',
+    titleEn: 'Project name 1',
+    descPl:  'Opis projektu po polsku.',
+    descEn:  'Project description in English.',
+    cover:   'branding/p1-cover.jpg',
+    images:  ['branding/p1-1.jpg','branding/p1-2.jpg','branding/p1-3.jpg','branding/p1-4.jpg','branding/p1-5.jpg']
+  },
+  {
+    titlePl: 'Nazwa projektu 2',
+    titleEn: 'Project name 2',
+    descPl:  'Opis projektu po polsku.',
+    descEn:  'Project description in English.',
+    cover:   'branding/p2-cover.jpg',
+    images:  ['branding/p2-1.jpg','branding/p2-2.jpg','branding/p2-3.jpg','branding/p2-4.jpg','branding/p2-5.jpg']
+  },
+  {
+    titlePl: 'Nazwa projektu 3',
+    titleEn: 'Project name 3',
+    descPl:  'Opis projektu po polsku.',
+    descEn:  'Project description in English.',
+    cover:   'branding/p3-cover.jpg',
+    images:  ['branding/p3-1.jpg','branding/p3-2.jpg','branding/p3-3.jpg','branding/p3-4.jpg','branding/p3-5.jpg']
+  }
+  /* Kolejne projekty: odkomentuj kiedy gotowe
+  ,{
+    titlePl: 'Nazwa projektu 4', titleEn: 'Project name 4',
+    descPl: 'Opis.', descEn: 'Description.',
+    cover: 'branding/p4-cover.jpg',
+    images: ['branding/p4-1.jpg','branding/p4-2.jpg','branding/p4-3.jpg','branding/p4-4.jpg','branding/p4-5.jpg']
+  }
+  */
+];
+
+/* ========================================
+   LANGUAGE
+   ======================================== */
+function pl() { return document.body.classList.contains('pl'); }
+
+function setLang(lang) {
+  document.body.classList.toggle('pl', lang === 'pl');
+  document.querySelectorAll('.lang-btn').forEach(function(b) {
+    b.classList.toggle('active', b.textContent === lang.toUpperCase());
+  });
+  localStorage.setItem('nb_lang', lang);
+  buildGrid();
+  if (currentProject !== null) { updateLbText(); }
+}
+
+(function() {
+  if (localStorage.getItem('nb_lang') === 'pl') {
+    document.body.classList.add('pl');
+    document.querySelectorAll('.lang-btn').forEach(function(b) {
+      b.classList.toggle('active', b.textContent === 'PL');
+    });
+  }
+})();
+
+/* ========================================
+   BUILD GRID
+   ======================================== */
+function buildGrid() {
+  var grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  projects.forEach(function(p, i) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'p-tile';
+
+    var img = document.createElement('img');
+    img.className = 'p-tile-img';
+    img.src = p.cover;
+    img.alt = '';
+
+    var overlay = document.createElement('div');
+    overlay.className = 'p-tile-overlay';
+
+    var content = document.createElement('div');
+    content.className = 'p-tile-content';
+
+    var title = document.createElement('div');
+    title.className = 'p-tile-title';
+    title.textContent = pl() ? p.titlePl : p.titleEn;
+
+    var desc = document.createElement('div');
+    desc.className = 'p-tile-desc';
+    desc.textContent = pl() ? p.descPl : p.descEn;
+
+    var cta = document.createElement('span');
+    cta.className = 'p-tile-cta';
+    cta.textContent = (pl() ? 'Zobacz więcej' : 'View project') + ' →';
+
+    content.appendChild(title);
+    content.appendChild(desc);
+    content.appendChild(cta);
+    overlay.appendChild(content);
+    btn.appendChild(img);
+    btn.appendChild(overlay);
+
+    btn.addEventListener('click', (function(idx) {
+      return function() { openLightbox(idx); };
+    })(i));
+
+    grid.appendChild(btn);
+  });
+}
+
+buildGrid();
+
+/* ========================================
+   LIGHTBOX
+   ======================================== */
+var currentProject = null;
+var currentImage   = 0;
+
+var lbOverlay = document.getElementById('lb');
+var lbImg     = document.getElementById('lb-img');
+var lbCat     = document.getElementById('lb-cat');
+var lbTitle   = document.getElementById('lb-title');
+var lbDesc    = document.getElementById('lb-desc');
+var lbCounter = document.getElementById('lb-counter');
+var lbThumbs  = document.getElementById('lb-thumbs');
+
+function updateLbText() {
+  var p = projects[currentProject];
+  lbCat.textContent   = pl() ? 'Logo i branding' : 'Logo and branding';
+  lbTitle.textContent = pl() ? p.titlePl : p.titleEn;
+  lbDesc.textContent  = pl() ? p.descPl  : p.descEn;
+}
+
+function openLightbox(idx) {
+  currentProject = idx;
+  currentImage   = 0;
+  renderLightbox();
+  lbOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lbOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function changeImage(dir) {
+  var len = projects[currentProject].images.length;
+  currentImage = (currentImage + dir + len) % len;
+  renderLightbox();
+}
+
+function renderLightbox() {
+  var p = projects[currentProject];
+  updateLbText();
+  lbImg.src = p.images[currentImage];
+  lbCounter.textContent = (currentImage + 1) + ' / ' + p.images.length;
+
+  lbThumbs.innerHTML = '';
+  p.images.forEach(function(src, i) {
+    var t = document.createElement('img');
+    t.src = src;
+    t.className = 'lb-thumb' + (i === currentImage ? ' active' : '');
+    t.addEventListener('click', (function(idx) {
+      return function() { currentImage = idx; renderLightbox(); };
+    })(i));
+    lbThumbs.appendChild(t);
+  });
+}
+
+document.getElementById('lb-close').addEventListener('click', closeLightbox);
+document.getElementById('lb-prev').addEventListener('click', function() { changeImage(-1); });
+document.getElementById('lb-next').addEventListener('click', function() { changeImage(1); });
+lbOverlay.addEventListener('click', function(e) { if (e.target === lbOverlay) closeLightbox(); });
+document.addEventListener('keydown', function(e) {
+  if (!lbOverlay.classList.contains('open')) return;
+  if (e.key === 'Escape')     closeLightbox();
+  if (e.key === 'ArrowLeft')  changeImage(-1);
+  if (e.key === 'ArrowRight') changeImage(1);
+});
+</script>
+</body>
+</html>
