@@ -4,7 +4,8 @@
   <defs>
     <style>
       .st0 {
-        fill: #e07a5f;
+        fill: #9b89c4;
+        isolation: isolate;
         opacity: .7;
       }
     </style>
