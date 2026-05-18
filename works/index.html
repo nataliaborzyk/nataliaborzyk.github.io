@@ -196,6 +196,24 @@ button { font-family:inherit; }
 }
 .modal-close:hover { opacity: .5; }
 
+.modal-credit {
+  position: fixed;
+  bottom: 28px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 400;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .5s ease .15s;
+}
+.modal.open .modal-credit { opacity: 1; }
+
 /* ── ABOUT ── */
 .about {
   margin-top: 72px;
@@ -448,6 +466,7 @@ footer strong {
 <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-label="Image viewer">
   <button class="modal-close" id="modalClose" aria-label="Close viewer">Close &times;</button>
   <img src="" alt="" id="modalImg">
+  <div class="modal-credit">&copy; Natalia Borzyk</div>
 </div>
 
 <script>
