@@ -146,6 +146,21 @@ button { font-family:inherit; }
 }
 .tile:hover img { transform: scale(1.04); }
 
+/* ── IMAGE PROTECTION ── */
+.tile img,
+#modalImg {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
 /* ── MODAL ── */
 .modal {
   position:fixed;
@@ -533,6 +548,12 @@ footer strong {
   });
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+
+  // ── Image protection — disable right-click and drag on portfolio images ──
+  document.querySelectorAll('.tile img, #modalImg').forEach((img) => {
+    img.addEventListener('contextmenu', (e) => e.preventDefault());
+    img.addEventListener('dragstart',  (e) => e.preventDefault());
   });
 })();
 </script>
