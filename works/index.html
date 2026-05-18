@@ -198,13 +198,12 @@ button { font-family:inherit; }
 
 /* ── ABOUT ── */
 .about {
-  margin-top: 140px;
+  margin-top: 72px;
   padding: 104px 80px 88px;
   display:grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 3fr;
   gap: 88px;
   align-items:center;
-  border-top: 1px solid var(--line);
 }
 .about-photo {
   aspect-ratio: 4 / 5;
@@ -276,9 +275,8 @@ button { font-family:inherit; }
 
 /* ── FOOTER ── */
 footer {
-  margin-top: 88px;
+  margin-top: 44px;
   padding: 44px 80px 48px;
-  border-top: 1px solid var(--line);
   text-align: center;
 }
 footer p {
@@ -340,8 +338,8 @@ footer strong {
 
   <div class="brand">
     <span class="brand-line"></span>
-    <a href="https://nataliaborzyk.com" aria-label="Natalia Borzyk — home">
-      <img src="/works/logo-works.png" alt="Natalia Borzyk" class="brand-logo" onerror="this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<span class=&quot;brand-name&quot;>Natalia Borzyk</span>')">
+    <a href="https://nataliaborzyk.com/works" aria-label="Natalia Borzyk — works">
+      <img src="/works/logo-works.svg" alt="Natalia Borzyk" class="brand-logo" onerror="this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<span class=&quot;brand-name&quot;>Natalia Borzyk</span>')">
     </a>
     <span class="brand-line"></span>
   </div>
@@ -414,10 +412,12 @@ footer strong {
 
 </section>
 
+<div class="rule"></div>
+
 <section class="about">
   <div class="about-photo">
     <span class="about-photo-ph">Photo</span>
-    <img src="/aboutme.png" alt="Natalia Borzyk" onerror="this.style.display='none'">
+    <img src="/works/natalia.png" alt="Natalia Borzyk" onerror="this.style.display='none'">
   </div>
   <div class="about-content">
     <span class="label">About Natalia</span>
@@ -433,6 +433,8 @@ footer strong {
 </section>
 
 </main>
+
+<div class="rule"></div>
 
 <footer>
   <p>
