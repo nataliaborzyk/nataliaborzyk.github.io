@@ -130,7 +130,8 @@ button { font-family:inherit; }
   background:var(--soft);
   opacity:0;
   transform: translateY(28px);
-  transition: opacity 1s ease, transform 1s ease;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+  transition: opacity 1s ease, transform 1s ease, box-shadow .35s ease;
 }
 .tile.in {
   opacity:1;
@@ -279,6 +280,17 @@ button { font-family:inherit; }
   margin-bottom: 16px;
   max-width: 480px;
   font-weight: 400;
+}
+.about-content p a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--line);
+  transition: text-decoration-color .25s ease;
+}
+.about-content p a:hover {
+  text-decoration-color: var(--ink);
 }
 
 .socials {
@@ -444,20 +456,6 @@ footer strong {
     <img src="/works/16.jpg" alt="Work 16" loading="lazy" onerror="this.style.display='none'">
   </div>
 
-  <!-- Row 5 -->
-  <div class="tile" data-img="/works/17.jpg" data-alt="Work 17">
-    <img src="/works/17.jpg" alt="Work 17" loading="lazy" onerror="this.style.display='none'">
-  </div>
-  <div class="tile" data-img="/works/18.jpg" data-alt="Work 18">
-    <img src="/works/18.jpg" alt="Work 18" loading="lazy" onerror="this.style.display='none'">
-  </div>
-  <div class="tile" data-img="/works/19.jpg" data-alt="Work 19">
-    <img src="/works/19.jpg" alt="Work 19" loading="lazy" onerror="this.style.display='none'">
-  </div>
-  <div class="tile" data-img="/works/20.jpg" data-alt="Work 20">
-    <img src="/works/20.jpg" alt="Work 20" loading="lazy" onerror="this.style.display='none'">
-  </div>
-
 </section>
 
 <div class="rule"></div>
@@ -471,7 +469,7 @@ footer strong {
     <span class="label">About Natalia</span>
     <p>Polish-born, Milan-based, and nine years deep into a career as a designer. Patterns and illustrations are what I do for work, but they're also what I'd do anyway. Drawing has been my thing since I was a little girl filling paper with horses, flowers, and every animal I could imagine. In the late 90s, when my grandpa brought home his first PC, I discovered Microsoft Paint and never really left the screen since (just changed the software).</p>
     <p>Outside of work, my world is shaped by the things I love: my 10-year-old ginger rescue dog Dingo (the absolute light of my life), loud music and live gigs, fantasy novels and video games I happily get lost into, travel whenever I can, and an old-school love of exchanging letters with penpals around the world, which is something I've been doing for many, many years.</p>
-    <p>If you're interested in a collaboration, contact me at hello@nataliaborzyk.com!</p>
+    <p>If you're interested in a collaboration, contact me at <a href="mailto:hello@nataliaborzyk.com">hello@nataliaborzyk.com</a>!</p>
 
     <div class="socials">
       <a href="https://www.instagram.com/bataljart/" target="_blank" rel="noopener" class="social">Instagram</a>
