@@ -354,3 +354,5 @@ summary:hover{color:var(--deep)}
 @media (max-width:960px){.bb,.bb-row,.duo{grid-template-columns:minmax(0,1fr)}.bb-stage{min-height:340px}}
 @media (max-width:560px){.gal--apl{grid-template-columns:minmax(0,1fr)}.swatches{grid-template-columns:repeat(2,minmax(0,1fr))}.tc-lora{font-size:22px}}
 #rules .slider{max-width:920px;margin:0 auto}#rules .slides img{aspect-ratio:1400/989;object-fit:contain;background:#fff}
+.gal figure{border:1px solid var(--line)}
+.gal figure.tint{background:#EFE5FC}.gal figure.tint img{mix-blend-mode:multiply}
