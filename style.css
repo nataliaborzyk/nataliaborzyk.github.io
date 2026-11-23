@@ -57,7 +57,7 @@ a{color:var(--ink)}a:hover{color:var(--deep)}
 .ig-av{width:10cqw;height:10cqw;border-radius:50%;background:#fff;color:#C9961A;display:flex;align-items:center;justify-content:center;font:600 5.5cqw Georgia,serif;flex:none}
 .ig-name{font-size:6cqw;font-weight:700}.ig-sp{font-size:5cqw;opacity:.85}.ig-x{margin-left:auto;font-size:8cqw;line-height:.6}
 .ig-bar{flex:1;display:flex;align-items:center;gap:3.5cqw;padding:0 4cqw}
-.ig-msg{flex:1;min-width:0;white-space:nowrap;overflow:hidden;color:rgba(255,255,255,.85);font:500 5cqw Inter,sans-serif;padding:2.6cqw 4cqw;border:1px solid rgba(255,255,255,.55);border-radius:999px}
+.ig-cta{flex:1;text-align:center;background:#fff;color:#17111F;font:700 5.5cqw Inter,sans-serif;padding:2.8cqw 0;border-radius:999px}
 .ig-bar svg{width:8cqw;height:8cqw;flex:none}
 .chip-dark{position:absolute;z-index:6;display:inline-flex;align-items:center;gap:7px;background:var(--ink);color:#fff;font-size:14px;font-weight:600;padding:8px 14px 8px 11px;border-radius:999px;white-space:nowrap}
 .ch-1{left:0;top:2%;transform:rotate(-8deg)}.ch-2{left:66%;top:3%;transform:rotate(6deg)}.ch-3{left:4%;top:86%;transform:rotate(-4deg)}.ch-4{right:0;top:84%;transform:rotate(3deg)}
