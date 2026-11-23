@@ -84,4 +84,23 @@
     document.getElementById('tile-toggle').addEventListener('change',function(e){pat.classList.toggle('show-tile',e.target.checked);});
     ['sky','lilac','mint','grey'].forEach(function(k){var i=new Image();i.src='img/dingo-'+k+'.jpg';});
   }
+  // ---- smooth FAQ
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('details').forEach(function(d){
+    var s=d.querySelector('summary'),body=s.nextElementSibling;if(!body||rm)return;
+    var busy=false;
+    s.addEventListener('click',function(e){
+      e.preventDefault();if(busy)return;busy=true;
+      var cs=getComputedStyle(body),mt=cs.marginTop;
+      if(!d.open){
+        d.open=true;var h=body.offsetHeight;
+        var a=body.animate([{height:'0px',marginTop:'0px',opacity:0},{height:h+'px',marginTop:mt,opacity:1}],{duration:340,easing:'cubic-bezier(.2,.7,.2,1)'});
+        a.onfinish=function(){busy=false;};
+      }else{
+        var h2=body.offsetHeight;
+        var b=body.animate([{height:h2+'px',marginTop:mt,opacity:1},{height:'0px',marginTop:'0px',opacity:0}],{duration:260,easing:'cubic-bezier(.4,0,.6,1)'});
+        b.onfinish=function(){d.open=false;busy=false;};
+      }
+    });
+  });
 })();
