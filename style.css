@@ -297,3 +297,8 @@ details p{margin:12px 0 0;font-size:16px;line-height:1.65;color:var(--text);max-
 .svc-projects .proj-link:only-child{grid-column:1/-1}.svc-projects .proj-link:only-child .proj-img{aspect-ratio:16/9}
 .svc-links{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
 .link--strong{font-size:16px}
+details>p{overflow:hidden}
+summary::after{transition:transform .3s}
+details[open] summary::after{transform:rotate(180deg)}
+summary:hover{color:var(--deep)}
+.back-home{margin-top:36px}
