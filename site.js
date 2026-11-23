@@ -69,7 +69,7 @@
     show(0);raf=requestAnimationFrame(tick);
   });
   // ---- format tabs
-  var tabs=document.querySelectorAll('.tab'),walls=document.querySelectorAll('.fwall');
+  var tabs=document.querySelectorAll('.tab[data-tab]'),walls=document.querySelectorAll('.fwall');
   tabs.forEach(function(tb){tb.addEventListener('click',function(){var k=+tb.getAttribute('data-tab');tabs.forEach(function(o,j){o.classList.toggle('is-on',j===k);});walls.forEach(function(w,j){w.classList.toggle('is-on',j===k);});});});
   // ---- newsletter scroll height
   function nlh(){document.querySelectorAll('.nl-screen').forEach(function(s){s.style.setProperty('--sh',s.clientHeight+'px');});}
@@ -103,4 +103,21 @@
       }
     });
   });
+  // ---- branding
+  var ut=document.querySelectorAll('[data-utab]'),up=document.querySelectorAll('.upanel');
+  ut.forEach(function(b){b.addEventListener('click',function(){var k=+b.getAttribute('data-utab');ut.forEach(function(o,j){o.classList.toggle('is-on',j===k);});up.forEach(function(p,j){p.classList.toggle('is-on',j===k);});});});
+  var bl=document.getElementById('bb-logo'),bs=document.getElementById('bb-stage');
+  if(bl){
+    document.querySelectorAll('[data-ver]').forEach(function(b){b.addEventListener('click',function(){var v=b.getAttribute('data-ver');
+      document.querySelectorAll('[data-ver]').forEach(function(o){o.classList.toggle('is-on',o===b);});
+      bl.classList.toggle('is-h',v==='h');bl.classList.toggle('is-v',v==='v');
+      document.querySelectorAll('[data-cap]').forEach(function(c){c.hidden=c.getAttribute('data-cap')!==v;});});});
+    document.getElementById('cs-toggle').addEventListener('change',function(e){bl.classList.toggle('show-cs',e.target.checked);});
+    document.querySelectorAll('.vbtn').forEach(function(b){b.addEventListener('click',function(){
+      bs.style.setProperty('--fg',b.getAttribute('data-fg'));bs.style.setProperty('--bg',b.getAttribute('data-bg'));
+      document.querySelectorAll('.vbtn').forEach(function(o){o.classList.toggle('is-on',o===b);});});});
+    document.querySelectorAll('.swatch').forEach(function(b){b.addEventListener('click',function(){
+      var h=b.getAttribute('data-copy');try{navigator.clipboard.writeText(h);}catch(e){}
+      b.classList.add('copied');setTimeout(function(){b.classList.remove('copied');},1500);});});
+  }
 })();
