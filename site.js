@@ -2,7 +2,9 @@
   var EN={};
   var els=document.querySelectorAll('[data-t]');
   els.forEach(function(el){EN[el.getAttribute('data-t')]=el.innerHTML;});
+  var T0=document.title;
   function setLang(l){
+    document.title=(l==='pl'&&window.PL&&window.PL.__title)?window.PL.__title:T0;
     els.forEach(function(el){
       var k=el.getAttribute('data-t');
       var v=(l==='pl'&&window.PL&&window.PL[k]!==undefined)?window.PL[k]:EN[k];
