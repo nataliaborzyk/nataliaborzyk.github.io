@@ -32,6 +32,7 @@
   var stage=document.getElementById('viewer-stage');
   document.querySelectorAll('.jar').forEach(function(j){j.addEventListener('click',function(){
     var k=j.getAttribute('data-label');
+    document.querySelectorAll('.shelf').forEach(function(sh){sh.classList.add('touched');});
     document.querySelectorAll('.jar').forEach(function(o){o.classList.toggle('is-on',o===j);});
     document.getElementById('v-cut').src='img/cut-'+k+'.webp';
     document.getElementById('v-file').src='img/file-'+k+'.jpg';
