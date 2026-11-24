@@ -356,3 +356,8 @@ summary:hover{color:var(--deep)}
 #rules .slider{max-width:920px;margin:0 auto}#rules .slides img{aspect-ratio:1400/989;object-fit:contain;background:#fff}
 .gal figure{border:1px solid var(--line)}
 .gal figure.tint{background:#fff;border-color:#D9C8F2;box-shadow:0 10px 24px rgba(23,17,31,.08)}
+.nl-screen{background-size:100% auto;background-repeat:no-repeat;background-position:50% 0;animation:nlbg 22s ease-in-out infinite alternate}
+.nl-phone:nth-child(2) .nl-screen{animation-delay:-5s}.nl-phone:nth-child(3) .nl-screen{animation-delay:-10s}.nl-phone:nth-child(4) .nl-screen{animation-delay:-15s}
+.nl-screen:hover{animation-play-state:paused}
+@keyframes nlbg{0%,8%{background-position:50% 0}92%,100%{background-position:50% 100%}}
+@media (prefers-reduced-motion:reduce){.nl-screen{animation:none}}

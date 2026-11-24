@@ -74,8 +74,6 @@
   var tabs=document.querySelectorAll('.tab[data-tab]'),walls=document.querySelectorAll('.fwall');
   tabs.forEach(function(tb){tb.addEventListener('click',function(){var k=+tb.getAttribute('data-tab');tabs.forEach(function(o,j){o.classList.toggle('is-on',j===k);});walls.forEach(function(w,j){w.classList.toggle('is-on',j===k);});});});
   // ---- newsletter scroll height
-  function nlh(){document.querySelectorAll('.nl-screen').forEach(function(s){s.style.setProperty('--sh',s.clientHeight+'px');});}
-  nlh();window.addEventListener('resize',nlh);
   // ---- pattern studio
   var pat=document.getElementById('pat');
   if(pat){
