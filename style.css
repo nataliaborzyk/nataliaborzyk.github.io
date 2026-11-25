@@ -374,3 +374,5 @@ summary:hover{color:var(--deep)}
 .ig-msg{flex:1;min-width:0;overflow:hidden;white-space:nowrap;color:rgba(255,255,255,.85);font:500 4.4cqw Inter,sans-serif;padding:2.6cqw 4cqw;border:1px solid rgba(255,255,255,.55);border-radius:999px}
 .st-shop{z-index:3;top:calc(9cqw + 177.78cqw - 15cqw);bottom:auto;font-size:4cqw}
 .st-bar{gap:3.5cqw}.st-bar svg{width:7cqw;height:7cqw;flex:none}.st-bar .ig-msg{font-size:3.8cqw}
+.seo-about .seo-h{margin:0 0 14px;font-family:var(--disp);font-weight:800;font-size:28px;letter-spacing:-.02em}
+.seo-about .body{max-width:760px}
