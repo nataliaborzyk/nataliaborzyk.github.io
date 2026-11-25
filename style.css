@@ -376,3 +376,4 @@ summary:hover{color:var(--deep)}
 .st-bar{gap:3.5cqw}.st-bar svg{width:7cqw;height:7cqw;flex:none}.st-bar .ig-msg{font-size:3.8cqw}
 .seo-about .seo-h{margin:0 0 14px;font-family:var(--disp);font-weight:800;font-size:28px;letter-spacing:-.02em}
 .seo-about .body{max-width:760px}
+.sec--lilac + .seo-about{background:var(--lilac);padding-bottom:0}.seo-about .body{margin-bottom:0}
